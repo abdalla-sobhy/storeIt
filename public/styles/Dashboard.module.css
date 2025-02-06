@@ -1,0 +1,676 @@
+.leftPart{
+    height: -webkit-fill-available;
+    width: 22%;
+}
+.logoDiv{
+    display: flex;
+    padding-left: 1.5rem;
+    padding-top: 1rem;
+}
+.DashbuttonDiv{
+    border-radius: 3rem !important;
+    box-shadow: 0px 20px 20px #e1e0e0;
+}
+.buttonDiv{
+    border-radius: 3rem !important;
+    background: linear-gradient(to right, #FEE3E5 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: background-position .5s ease-out, color .4s ease-out;
+}
+.buttonDiv:hover{
+    background-position: left bottom;
+    color: white;
+}
+.svg {
+    width: 1.25rem;
+    height: 1.5rem;
+}
+.bottomImageLayerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10rem;
+    margin-top: 2rem;
+}
+.bottomImageLayer{
+    background-color: #FEE3E5;
+    height: 100%;
+    width: 90%;
+    border-radius: 3rem;
+    position: relative;
+}
+.bottomImage{
+    position: absolute;
+    margin-left: 2rem;
+    margin-top: -3rem;
+}
+.imageDiv{
+    border-radius: 3rem;
+}
+.usernameAndEmailContainer{
+    border-radius: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.userImageusername{
+    background-color: #FEE3E5;
+    width: 90%;
+    height: 100%;
+    border-radius: 2rem;
+}
+.usernmae{
+    font-weight: 600;
+    margin-top: 0.3rem;
+}
+.email{
+    font-weight: lighter;
+    margin-bottom: 0.5rem;
+}
+
+
+/*    Loading page CSS    */
+
+/* From Uiverse.io by SchawnnahJ */ 
+.loader {
+    position: relative;
+    width: 2.5em;
+    height: 2.5em;
+    transform: rotate(165deg);
+}
+
+.loader:before, .loader:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 0.25em;
+    transform: translate(-50%, -50%);
+}
+
+.loader:before {
+    animation: before8 2s infinite;
+}
+
+.loader:after {
+    animation: after6 2s infinite;
+}
+
+@keyframes before8 {
+    0% {
+        width: 0.5em;
+        box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+    }
+
+    35% {
+        width: 2.5em;
+        box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+    }
+
+    70% {
+        width: 0.5em;
+        box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+    }
+
+    100% {
+        box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+    }
+}
+
+@keyframes after6 {
+    0% {
+        height: 0.5em;
+        box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+    }
+
+    35% {
+        height: 2.5em;
+        box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+    }
+
+    70% {
+        height: 0.5em;
+        box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+    }
+
+    100% {
+        box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+    }
+}
+
+.loader {
+    position: absolute;
+    top: calc(50% - 1.25em);
+    left: calc(50% - 1.25em);
+}
+.rightPart{
+    width: 76%;
+}
+.header{
+    height: 10.5%;
+    align-items: center;
+}
+.body{
+    height: 86.5%;
+    background-color: #F2F3F8;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    overflow-x: hidden;
+    gap: 1.5rem;
+}
+/* .body::-webkit-scrollbar {
+    display: none;
+} */
+.Btn{
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.LogoutDiv{
+    height: 2.5rem;
+    width: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FEE3E5;
+    border-radius: 50%;
+}
+.sign{
+    height: 40%;
+    width: 40%;
+}
+
+
+
+/* From Uiverse.io by vinodjangid07 */ 
+.cssbuttons_io_button {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 0.8em 1.5em 0.8em 1.2em;
+    color: white;
+    background: #ad5389;
+    background: linear-gradient(0deg, #FB7276 0%, #FB7276 100%);
+    border: none;
+    box-shadow: 0 0.7em 1.5em -0.5em #FB7276;
+    letter-spacing: 0.05em;
+    border-radius: 20em;
+    cursor: pointer;
+}
+
+.cssbuttons_io_button svg {
+    margin-right: 8px;
+}
+
+.cssbuttons_io_button:hover {
+    box-shadow: 0 0.5em 1.5em -0.5em #FB7276;
+}
+
+.cssbuttons-io-button:active {
+    box-shadow: 0 0.3em 1em -0.5em #FB7276;
+}
+.bodyHead{
+    height: 17%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.5rem;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.bodyHeadTop{
+    display: flex;
+    flex-direction: column;
+}
+.Dashboard{
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 2rem;
+}
+.bodyHeadBottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.noFiles{
+    margin-top: 11%;
+    font-family: sans-serif;
+    font-size: large;
+}
+.cardsContainer {
+    display: grid;
+    grid-template-columns: 31% 31% 31%;
+    padding: 10px;
+    width: 96%;
+    gap: 1.5rem;
+}
+.card {
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 30px;
+    border: none;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+    position: relative;
+}
+.cardUpperPart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.cardBottomPart{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+.cardSizeAndSettings{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.filesNumber{
+    font-weight: bold;
+    font-size: medium;
+}
+.cardUsername{
+    font-weight: normal;
+    font-size: medium;
+    color: gray;
+}
+.cardDate{
+    font-weight: normal;
+    font-size: medium;
+}
+.cardFileName{
+    font-weight: bold;
+    font-size: medium;
+    font-family: sans-serif;
+}
+.cardSize{
+    font-weight: 500;
+    font-size: medium;
+    font-family: sans-serif;
+}
+.cardImageDiv{
+    width: 24%;
+}
+.infoCardImageDiv{
+    width: 12%;
+}
+.cardImage{
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* From Uiverse.io by thomas-m-njuguna */ 
+.btn_cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    background-color: #1e1e1e;
+    margin: 0;
+    border: 1px solid #ffff;
+    border-radius: 10px;
+  }
+.button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-bottom: 1rem;
+    border-radius: 5px;
+    position: relative;
+    transition: background-color 0.2s ease;
+}
+.Searchbutton{
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    transition: background-color 0.2s ease;
+}
+  .button:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    visibility: visible;
+    opacity: 1;
+  }
+.tooltip{
+    background-color: rgba(255, 255, 255, 0.1);
+    visibility: visible;
+    opacity: 1;
+}
+  .settings_btn {
+    display: block;
+    transition: transform 0.4s ease-in;
+  }
+  .settings_btn:hover {
+    transform: rotate(60deg);
+  }
+  .settings_btn:active {
+    animation: rot 1s linear infinite;
+  }
+  @keyframes rot {
+    from {
+      transform: rotate(-100deg);
+    }
+    to {
+      transform: rotate(180deg);
+    }
+  }
+  .tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.hiddenCard{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    z-index: 1;
+    font-weight: 400;
+    font-size: medium;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 14.5rem;
+    box-shadow: 0px 4px 6px 5px #e1e0e0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    opacity: 0;
+    transform: translateY(-10px); /* Start slightly above */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    pointer-events: none; /* Prevent interaction when invisible */
+}
+.hiddenCard.show {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+}
+.hiddenFileName{
+    font-weight: bold;
+    font-size: medium;
+    font-family: sans-serif;
+    padding-bottom: 0.7rem;
+}
+.element{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+.element:hover{
+    background-color: #E0E0E0;
+}
+.AreYouSureSentence{
+    font-size: medium;
+    white-space: nowrap;
+}
+.AreYouSureSentenceRename{
+    font-size: medium;
+    white-space: nowrap;
+    width: 88%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+}
+.sureAndCancleDiv{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    width: 80%;
+}
+.sure{
+    width: 100%;
+    border-radius: 2rem;
+}
+.sureButton{
+    width: 100%;
+    color: white;
+    border-radius: 2rem;
+    background-color: #FD7178;
+    cursor: pointer;
+    font-size: medium;
+    padding: 1rem;
+}
+.cancle{
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0px 4px 0px 1px #e1e0e0
+}
+.cancleButton{
+    width: 100%;
+    color: black;
+    border-radius: 2rem;
+    background-color: white;
+    cursor: pointer;
+    font-size: medium;
+    padding: 1rem;
+}
+.infoNameAndImage{
+    display: flex;
+    flex-direction: row;
+    background-color: #e1e0e0;
+    padding: 0.9rem;
+    border-radius: 1rem;
+    gap: 2rem;
+    width: 100%;
+}
+.infoRightPart{
+    display: flex;
+    flex-direction: column;
+}
+.infoFileName{
+    font-size: smaller;
+}
+.infoFileDate{
+    font-size: large;
+}
+.infoDetails{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 3rem;
+}
+.infocategories{
+    color: #747272;
+    font-size: smaller;
+}
+.infocategoriesValue{
+    font-size: smaller;
+    font-weight: 700;
+}
+.infoDetailsCategoryPart{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.infoExitImageDiv{
+    position: fixed;
+    margin-left: 33rem;
+    margin-top: -2rem;
+}
+.sahreFileSentemce{
+    display: flex;
+    width: 100%;
+    font-size: large;
+    font-weight: 700;
+}
+.emailSendDiv{
+    width: 100%;
+    height: 3rem;
+    border-radius: 2rem;
+    margin-top: -1.2rem;
+}
+.emailInput{
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    padding-left: 1rem;
+    font-size: large;
+    box-shadow: 0px 12px 13px #e1e0e0;
+    border: 1px solid gray;
+}
+.emailInput:focus{
+    border: 1px solid gray;
+    outline: none;
+}
+.soryBySpan{
+    font-size: large;
+    color: #adadad
+}
+
+.searchBar{
+    width: 75%;
+}
+
+
+
+
+/* From Uiverse.io by satyamchaudharydev */ 
+/* From uiverse.io by @satyamchaudharydev */
+/* removing default style of button */
+
+.form button {
+    border: none;
+    background: none;
+    color: #8b8ba7;
+  }
+  /* styling of whole input container */
+  .form {
+    --timing: 0.3s;
+    --width-of-input: 200px;
+    --height-of-input: 40px;
+    --border-height: 2px;
+    --input-bg: #fff;
+    --border-color: #FD7178;
+    --border-radius: 30px;
+    --after-border-radius: 1px;
+    position: relative;
+    width: var(--width-of-input);
+    height: var(--height-of-input);
+    display: flex;
+    align-items: center;
+    padding-inline: 0.8em;
+    border-radius: var(--border-radius);
+    transition: border-radius 0.5s ease;
+    background: var(--input-bg,#fff);
+    width: 100%;
+  }
+  /* styling of Input */
+  .input {
+    font-size: 1.2rem;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+  }
+  /* styling of animated border */
+  .form:before {
+    content: "";
+    position: absolute;
+    background: var(--border-color);
+    transform: scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: var(--border-height);
+    left: 0;
+    bottom: 0;
+    border-radius: 1px;
+    transition: transform var(--timing) ease;
+  }
+  /* Hover on Input */
+  .form:focus-within {
+    border-radius: var(--after-border-radius);
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  /* here is code of animated border */
+  .form:focus-within:before {
+    transform: scale(1);
+  }
+  /* styling of close button */
+  /* == you can click the close button to remove text == */
+  .reset {
+    border: none;
+    background: none;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+}
+  /* close button shown when typing */
+input:not(:placeholder-shown) ~ .reset {
+    opacity: 1;
+    visibility: visible;
+}
+  /* sizing svg icons */
+.form svg {
+    width: 17px;
+    margin-top: 3px;
+}
+.searchedFiles{
+    width: 53%;
+    height: fit-content;
+    background-color: white;
+    box-shadow: 0px 20px 20px #e1e0e0;
+    position: absolute;
+    z-index: 1;
+    margin-top: 1rem;
+}
+.searchedFile{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 3.5rem;
+    padding-bottom: 1rem;
+    justify-content: space-between;
+}
+.searchedFileImage{
+    width: 7%;
+    padding-left: 1rem;
+}
+.searchedFileName{
+    /* margin-left: -17rem; */
+}
