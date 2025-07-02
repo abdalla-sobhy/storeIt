@@ -166,15 +166,15 @@ export default function Dashboard(){
           }
       
           const data = await response.json();
-          const files = data.files.filter((file: { file_type: string; }) => file.file_type === 'pdf' || file.file_type === 'docx');
+          const files = data.files.filter((file: { file_type: string; }) => file.file_type === 'pdf' || file.file_type === 'docx' || file.file_type === 'txt');
           if(select === 'Date created (Newest)'){
               files.sort((a: { created_at: number; }, b: { created_at: number; }) => a.created_at - b.created_at);
           }else if(select === 'Date created (Oldest)'){
               files.sort((a: { created_at: number; }, b: { created_at: number; }) => b.created_at - a.created_at);
           }else if(select === 'File size (Highest)'){
-              files.sort((a: { file_size: number; }, b: { file_size: number; }) => a.file_size - b.file_size);
+            data.files.sort((a: { file_size: number; }, b: { file_size: number; }) => b.file_size - a.file_size);
           }else if(select === 'File size (Lowest)'){
-              files.sort((a: { file_size: number; }, b: { file_size: number; }) => b.file_size - a.file_size);
+            data.files.sort((a: { file_size: number; }, b: { file_size: number; }) => a.file_size - b.file_size);
           }else if(select === 'Name (A-Z)'){
               files.sort((a: { file_name: string }, b: { file_name: string }) => {
               const firstLetterA = a.file_name.charAt(0).toLowerCase();
@@ -518,7 +518,7 @@ export default function Dashboard(){
                     </div>
                     <div className={`${DashCSS.usernameAndEmailContainer}`}>
                         <div className={`${DashCSS.userImageusername} flex flex-row`}>
-                            <div className={`${DashCSS.userImage} ml-4`}>
+                            <div className={`${DashCSS.userImage} ml-4 mt-1.5`}>
                             <svg className="w-12 h-12 stroke-gray-400" stroke="currentCoglor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" stroke-linejoin="round" stroke-linecap="round"></path>
         </svg>
@@ -557,10 +557,12 @@ export default function Dashboard(){
             <img className={DashCSS.cardImage} src={'http://localhost:8000/storage/file_path/'+file.file_path} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} />
           ) : file.file_type === 'pdf' ? (
             <img className={DashCSS.cardImage} src={'/src/assets/pdf_svgrepo_com.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} />
-          ) : file.file_type === 'docx' ? 
-          ( <img className={DashCSS.cardImage} src={'/src/assets/download.jpeg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
-            
-          ): <img className={DashCSS.cardImage} src={'/src/assets/music.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> }
+          ) : file.file_type === 'docx' ? ( 
+            <img className={DashCSS.cardImage} src={'/src/assets/download.jpeg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
+          ): file.file_type === 'txt' ? (
+            <img className={DashCSS.cardImage} src={'/src/assets/text-152333.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
+          ) :
+          <img className={DashCSS.cardImage} src={'/src/assets/music.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> }
         </div>
         <div className={`${DashCSS.searchedFileName}`}>
           {file.file_name}
@@ -728,10 +730,12 @@ export default function Dashboard(){
             <img className={DashCSS.cardImage} src={'http://localhost:8000/storage/file_path/'+file.file_path} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} />
           ) : file.file_type === 'pdf' ? (
             <img className={DashCSS.cardImage} src={'/src/assets/pdf_svgrepo_com.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} />
-          ) : file.file_type === 'docx' ? 
-          ( <img className={DashCSS.cardImage} src={'/src/assets/download.jpeg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
-            
-          ): <img className={DashCSS.cardImage} src={'/src/assets/music.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> }
+          ) : file.file_type === 'docx' ? ( 
+            <img className={DashCSS.cardImage} src={'/src/assets/download.jpeg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
+          ): file.file_type === 'txt' ? (
+            <img className={DashCSS.cardImage} src={'/src/assets/text-152333.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
+          ) :
+          <img className={DashCSS.cardImage} src={'/src/assets/music.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> }
       </div>
       <div className={`${DashCSS.infoRightPart}`}>
         <div className={`${DashCSS.infoFileName}`}>{file.file_name}</div>
@@ -816,10 +820,12 @@ export default function Dashboard(){
             <img className={DashCSS.cardImage} src={'http://localhost:8000/storage/file_path/'+file.file_path} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} />
           ) : file.file_type === 'pdf' ? (
             <img className={DashCSS.cardImage} src={'/src/assets/pdf_svgrepo_com.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} />
-          ) : file.file_type === 'docx' ? 
-          ( <img className={DashCSS.cardImage} src={'/src/assets/download.jpeg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
-            
-          ): <img className={DashCSS.cardImage} src={'/src/assets/music.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> }
+          ) : file.file_type === 'docx' ? ( 
+            <img className={DashCSS.cardImage} src={'/src/assets/download.jpeg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
+          ): file.file_type === 'txt' ? (
+            <img className={DashCSS.cardImage} src={'/src/assets/text-152333.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
+          ) :
+          <img className={DashCSS.cardImage} src={'/src/assets/music.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> }
       </div>
       <div className={`${DashCSS.infoRightPart}`}>
         <div className={`${DashCSS.infoFileName}`}>{file.file_name}</div>
@@ -1138,10 +1144,12 @@ export default function Dashboard(){
             <img className={DashCSS.cardImage} src={'http://localhost:8000/storage/file_path/'+file.file_path} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} />
           ) : file.file_type === 'pdf' ? (
             <img className={DashCSS.cardImage} src={'/src/assets/pdf_svgrepo_com.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} />
-          ) : file.file_type === 'docx' ? 
-          ( <img className={DashCSS.cardImage} src={'/src/assets/download.jpeg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
-            
-          ): <img className={DashCSS.cardImage} src={'/src/assets/music.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> }
+          ) : file.file_type === 'docx' ? ( 
+            <img className={DashCSS.cardImage} src={'/src/assets/download.jpeg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
+          ): file.file_type === 'txt' ? (
+            <img className={DashCSS.cardImage} src={'/src/assets/text-152333.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
+          ) :
+          <img className={DashCSS.cardImage} src={'/src/assets/music.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> }
       </div>
       <div className={`${DashCSS.infoRightPart}`}>
         <div className={`${DashCSS.infoFileName}`}>{file.file_name}</div>
@@ -1226,10 +1234,12 @@ export default function Dashboard(){
             <img className={DashCSS.cardImage} src={'http://localhost:8000/storage/file_path/'+file.file_path} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} />
           ) : file.file_type === 'pdf' ? (
             <img className={DashCSS.cardImage} src={'/src/assets/pdf_svgrepo_com.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} />
-          ) : file.file_type === 'docx' ? 
-          ( <img className={DashCSS.cardImage} src={'/src/assets/download.jpeg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
-            
-          ): <img className={DashCSS.cardImage} src={'/src/assets/music.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> }
+          ) : file.file_type === 'docx' ? ( 
+            <img className={DashCSS.cardImage} src={'/src/assets/download.jpeg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
+          ): file.file_type === 'txt' ? (
+            <img className={DashCSS.cardImage} src={'/src/assets/text-152333.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
+          ) :
+          <img className={DashCSS.cardImage} src={'/src/assets/music.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> }
       </div>
       <div className={`${DashCSS.infoRightPart}`}>
         <div className={`${DashCSS.infoFileName}`}>{file.file_name}</div>
@@ -1341,10 +1351,12 @@ export default function Dashboard(){
             <img className={DashCSS.cardImage} src={'http://localhost:8000/storage/file_path/'+file.file_path} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} />
           ) : file.file_type === 'pdf' ? (
             <img className={DashCSS.cardImage} src={'/src/assets/pdf_svgrepo_com.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} />
-          ) : file.file_type === 'docx' ? 
-          ( <img className={DashCSS.cardImage} src={'/src/assets/download.jpeg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
-            
-          ): <img className={DashCSS.cardImage} src={'/src/assets/music.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> }
+          ) : file.file_type === 'docx' ? ( 
+            <img className={DashCSS.cardImage} src={'/src/assets/download.jpeg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
+          ): file.file_type === 'txt' ? (
+            <img className={DashCSS.cardImage} src={'/src/assets/text-152333.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> 
+          ) :
+          <img className={DashCSS.cardImage} src={'/src/assets/music.svg'} alt={"file.file_path"} onClick={() => window.open(`http://localhost:8000/storage/file_path/${file.file_path}`, '_blank')} /> }
         </div>
         <div className={DashCSS.cardSizeAndSettings}>
   <button className={DashCSS.button} onClick={() => setOpenSettingsId(openSettingsId === file.id ? null : file.id)}>
